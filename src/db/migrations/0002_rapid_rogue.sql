@@ -1,0 +1,1 @@
+DROP TABLE `jobsearch_account`;

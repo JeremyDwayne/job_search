@@ -9,7 +9,7 @@ import DiscordProvider from "next-auth/providers/discord";
 
 import { env } from "~/env";
 import { db } from "~/db";
-import { createTable } from "~/db/schema";
+import { createTable } from "~/db/schema/schema";
 
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
