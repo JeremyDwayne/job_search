@@ -1,7 +1,8 @@
+import { type Session } from "next-auth";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Navbar({ session }: { session: any }) {
+export default function Navbar({ session }: { session: Session | null }) {
   return (
     <div className="navbar bg-slate-100">
       <div className="flex-1">
