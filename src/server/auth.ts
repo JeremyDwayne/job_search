@@ -1,4 +1,4 @@
-import { DrizzleAdapter } from "@auth/drizzle-adapter";
+import { PrismaAdapter } from "@auth/prisma-adapter";
 import {
   getServerSession,
   type DefaultSession,
@@ -9,8 +9,7 @@ import DiscordProvider from "next-auth/providers/discord";
 import GitHubProvider from "next-auth/providers/github";
 
 import { env } from "~/env";
-import { db } from "~/db";
-import { createTable } from "~/db/schema/schema";
+import { db } from "~/server/db";
 
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
@@ -48,7 +47,7 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   },
-  adapter: DrizzleAdapter(db, createTable) as Adapter,
+  adapter: PrismaAdapter(db) as Adapter,
   providers: [
     DiscordProvider({
       clientId: env.DISCORD_CLIENT_ID,
