@@ -23,8 +23,6 @@
     "@trpc/next": "next",
     "@trpc/react-query": "next",
     "@trpc/server": "next",
-    "@vercel/analytics": "^1.2.2",
-    "@vercel/speed-insights": "^1.0.10",
     "better-sqlite3": "^9.4.3",
     "bun-types": "^1.0.33",
     "dotenv": "^16.4.5",

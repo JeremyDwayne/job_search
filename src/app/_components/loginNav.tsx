@@ -34,15 +34,6 @@ export default function LoginNav({ user }: { user: User | null }) {
             className="menu dropdown-content menu-sm z-[1] mt-3 w-52 rounded-box bg-slate-100 p-2 shadow"
           >
             <li>
-              <a className="justify-between">
-                Profile
-                <span className="badge">New</span>
-              </a>
-            </li>
-            <li>
-              <a>Settings</a>
-            </li>
-            <li>
               <Link href="/api/auth/signout">Sign out</Link>
             </li>
           </ul>

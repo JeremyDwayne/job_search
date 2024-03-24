@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FullLogo } from "./logo";
+import { FullLogo } from "./Logo";
 
 export default function Footer() {
   return (

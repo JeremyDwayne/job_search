@@ -1,8 +1,6 @@
 import "~/styles/globals.css";
 
 import { Inter } from "next/font/google";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/react";
 import { TRPCReactProvider } from "~/trpc/react";
 
 const inter = Inter({
@@ -25,8 +23,6 @@ export default function RootLayout({
     <html lang="en" data-theme="cupcake">
       <body className={`font-sans ${inter.variable}`}>
         <TRPCReactProvider>{children}</TRPCReactProvider>
-        <SpeedInsights />
-        <Analytics />
       </body>
     </html>
   );

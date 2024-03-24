@@ -1,15 +1,15 @@
-import { Navbar } from "./_components/navbar";
-import Pricing from "./_components/pricing";
+import { Navbar } from "./_components/Navbar";
+import Pricing from "./_components/Pricing";
 import Image from "next/image";
 
 import {
   FeaturesTopWave,
   FeaturesBottomWave,
-} from "./_components/waveSeparators";
-import Footer from "./_components/footer";
-import { Checkmark, Crossmark } from "./_components/svgIcons";
+} from "./_components/WaveSeparators";
+import Footer from "./_components/Footer";
+import { Checkmark, Crossmark } from "./_components/SvgIcons";
 
-export default async function Home() {
+export default function Home() {
   return (
     <>
       <Navbar />

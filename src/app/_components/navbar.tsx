@@ -1,5 +1,5 @@
-import { FullLogo } from "./logo";
-import LoginNav from "./loginNav";
+import { FullLogo } from "./Logo";
+import LoginNav from "./LoginNav";
 import { getServerAuthSession } from "~/server/auth";
 
 export const Navbar = async () => {
