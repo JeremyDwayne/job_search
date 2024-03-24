@@ -15,6 +15,18 @@ const config = {
         port: "",
         pathname: "/images/**",
       },
+      {
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com",
+        port: "",
+        pathname: "/u/**",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.discordapp.com/",
+        port: "",
+        pathname: "/avatars/**",
+      },
     ],
   },
 };

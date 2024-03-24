@@ -1,10 +1,10 @@
 import React from "react";
-import { type Session } from "next-auth";
+import type { User } from "next-auth";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function LoginNav({ session }: { session: Session | null }) {
-  if (!session) {
+export default function LoginNav({ user }: { user: User | null }) {
+  if (!user) {
     return (
       <Link href="/api/auth/signin" className="btn btn-primary">
         Login
@@ -22,8 +22,8 @@ export default function LoginNav({ session }: { session: Session | null }) {
           >
             <div className="w-10 rounded-full">
               <Image
-                alt="Tailwind CSS Navbar component"
-                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                alt={user?.name ?? ""}
+                src={user?.image ?? ""}
                 width={40}
                 height={40}
               />
@@ -43,9 +43,7 @@ export default function LoginNav({ session }: { session: Session | null }) {
               <a>Settings</a>
             </li>
             <li>
-              <Link href={session ? "/api/auth/signout" : "/api/auth/signin"}>
-                {session ? "Sign out" : "Sign in"}
-              </Link>
+              <Link href="/api/auth/signout">Sign out</Link>
             </li>
           </ul>
         </div>

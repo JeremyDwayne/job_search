@@ -1,9 +1,7 @@
-import Link from "next/link";
-import Navbar from "./_components/navbar";
+import { Navbar } from "./_components/navbar";
 import Pricing from "./_components/pricing";
 import Image from "next/image";
 
-import { getServerAuthSession } from "~/server/auth";
 import {
   FeaturesTopWave,
   FeaturesBottomWave,
@@ -12,11 +10,9 @@ import Footer from "./_components/footer";
 import { Checkmark, Crossmark } from "./_components/svgIcons";
 
 export default async function Home() {
-  const session = await getServerAuthSession();
-
   return (
     <>
-      <Navbar session={session} />
+      <Navbar />
       <main className="flex min-h-screen flex-col items-center justify-center bg-white">
         <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
           <div className="w-screen">
@@ -70,7 +66,7 @@ export default async function Home() {
                         </li>
                         <li className="flex items-center gap-2">
                           <Checkmark />
-                          Compare your current company to those you're
+                          Compare your current company to those you&apos;re
                           interviewing with
                         </li>
                       </ul>
