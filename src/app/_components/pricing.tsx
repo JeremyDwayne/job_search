@@ -7,7 +7,7 @@ export default function Pricing() {
         <div className="mb-20 flex w-full flex-col text-center">
           <div className="mb-4 ">
             <div className="badge badge-accent animate-pulse whitespace-nowrap">
-              ✨ Launch discount — $50 OFF ✨
+              ✨ Launch discount — 50% OFF ✨
             </div>
           </div>
           <h2 className="mx-auto mb-8 max-w-3xl text-3xl font-bold tracking-tight lg:text-5xl ">
