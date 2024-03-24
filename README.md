@@ -11,8 +11,8 @@ Open to ideas for a better name lol.
 - React
 - Next.js
 - Tailwind CSS
-- Turso/Sqlite
-- Drizzle ORM
+- Supabase Postgres
+- Prisma ORM
 - tRPC
 - Vercel
 - NextAuth.js
