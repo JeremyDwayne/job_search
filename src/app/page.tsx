@@ -9,6 +9,7 @@ import {
   FeaturesBottomWave,
 } from "./_components/waveSeparators";
 import Footer from "./_components/footer";
+import { Checkmark, Crossmark } from "./_components/svgIcons";
 
 export default async function Home() {
   const session = await getServerAuthSession();
@@ -51,59 +52,57 @@ export default async function Home() {
                   <div className="mx-auto my-0 h-1 w-64 rounded-t bg-cyan-500 py-0 opacity-25"></div>
                 </div>
                 <div className="flex w-full flex-shrink flex-grow flex-col p-6 md:w-1/3">
-                  <div className="flex-1 overflow-hidden rounded-b-none rounded-t bg-white shadow">
-                    <div className="mt-4 w-full px-6 text-xl font-bold text-gray-800">
-                      Lorem ipsum dolor sit amet.
-                    </div>
-                    <p className="mb-5 px-6 text-base text-gray-800">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Aliquam at ipsum eu nunc commodo posuere et sit amet
-                      ligula.
-                    </p>
-                  </div>
-                  <div className="mt-auto flex-none overflow-hidden rounded-b rounded-t-none bg-white p-6 shadow">
-                    <div className="flex items-center justify-center">
-                      <Link href="#" className="btn btn-primary">
-                        Action
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex w-full flex-shrink flex-grow flex-col p-6 md:w-1/3">
-                  <div className="flex-1 overflow-hidden rounded-b-none rounded-t bg-white shadow">
-                    <div className="mt-4 w-full px-6 text-xl font-bold text-gray-800">
-                      Lorem ipsum dolor sit amet.
-                    </div>
-                    <p className="mb-5 px-6 text-base text-gray-800">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Aliquam at ipsum eu nunc commodo posuere et sit amet
-                      ligula.
-                    </p>
-                  </div>
-                  <div className="mt-auto flex-none overflow-hidden rounded-b rounded-t-none bg-white p-6 shadow">
-                    <div className="flex items-center justify-center">
-                      <Link href="#" className="btn btn-primary">
-                        Action
-                      </Link>
+                  <div className="flex-1 overflow-hidden rounded bg-white shadow">
+                    <div className="my-5 px-6 text-base text-gray-800">
+                      <ul className="flex-1 space-y-2.5 text-base leading-relaxed">
+                        <li className="flex items-center gap-2">
+                          <Checkmark />
+                          Track job applications and scheduled interviews
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <Checkmark />
+                          Capturing insightful notes and conduct retrospectives
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <Checkmark />
+                          Rank companies and offers to help make informed career
+                          choices
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <Checkmark />
+                          Compare your current company to those you're
+                          interviewing with
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </div>
+
                 <div className="flex w-full flex-shrink flex-grow flex-col p-6 md:w-1/3">
-                  <div className="flex-1 overflow-hidden rounded-b-none rounded-t bg-white shadow">
-                    <div className="mt-4 w-full px-6 text-xl font-bold text-gray-800">
-                      Lorem ipsum dolor sit amet.
-                    </div>
-                    <p className="mb-5 px-6 text-base text-gray-800">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Aliquam at ipsum eu nunc commodo posuere et sit amet
-                      ligula.
-                    </p>
-                  </div>
-                  <div className="mt-auto flex-none overflow-hidden rounded-b rounded-t-none bg-white p-6 shadow">
-                    <div className="flex items-center justify-center">
-                      <Link href="#" className="btn btn-primary">
-                        Action
-                      </Link>
+                  <div className="flex-1 overflow-hidden rounded bg-white shadow">
+                    <div className="my-5 px-6 text-base text-gray-800">
+                      <ul className="flex-1 space-y-2.5 text-base leading-relaxed">
+                        <li className="flex items-center gap-2">
+                          <Checkmark />
+                          Discover skill gaps to focus your studies for the next
+                          interview
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <Checkmark />
+                          Eliminate ghosting through automated reminders for
+                          proactive follow-ups
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <Crossmark />
+                          No more manual spreadsheets or digging through email
+                          threads
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <Crossmark />
+                          Stop wasting time on repetitive tasks and focus on
+                          landing your dream job
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </div>

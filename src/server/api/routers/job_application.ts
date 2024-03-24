@@ -17,4 +17,20 @@ export const jobApplicationRouter = createTRPCRouter({
         },
       });
     }),
+
+  create: protectedProcedure
+    .input(
+      z.object({
+        jobApplication: z.object({ url: z.string(), companyId: z.string() }),
+      }),
+    )
+    .mutation(({ ctx, input }) => {
+      return ctx.db.jobApplication.create({
+        data: {
+          url: input.jobApplication.url,
+          companyId: input.jobApplication.companyId,
+          userId: ctx.session.user.id,
+        },
+      });
+    }),
 });

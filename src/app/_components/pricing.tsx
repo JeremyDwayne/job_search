@@ -38,11 +38,11 @@ export default function Pricing() {
               <ul className="flex-1 space-y-2.5 text-base leading-relaxed">
                 <li className="flex items-center gap-2">
                   <Checkmark />
-                  <span>feature 1</span>
+                  <span>Access to all features</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Checkmark />
-                  <span>feature 2</span>
+                  <span>Pay as you go, cancel when you land your job!</span>
                 </li>
               </ul>
               <div className="space-y-2">
@@ -85,13 +85,13 @@ export default function Pricing() {
               <ul className="flex-1 space-y-2.5 text-base leading-relaxed">
                 <li className="flex items-center gap-2">
                   <Checkmark />
-                  <span>feature 1</span>
+                  <span>Access to all current and future features</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Checkmark />
                   <span>
-                    <span className="bg-primary/20 px-1">feature 2</span> that
-                    is fancy
+                    <span className="bg-primary/40 px-1">Lifetime</span> access
+                    with a no recurring fees
                   </span>
                 </li>
               </ul>

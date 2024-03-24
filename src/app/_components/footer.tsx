@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FullLogo } from "./logo";
 
 export default function Footer() {
@@ -19,20 +20,20 @@ export default function Footer() {
             <p className="uppercase text-white md:mb-6">Links</p>
             <ul className="list-reset mb-6">
               <li className="mr-2 mt-2 inline-block md:mr-0 md:block">
-                <a
+                <Link
                   href="#pricing"
                   className="text-gray-200 no-underline hover:text-pink-400 hover:underline"
                 >
                   Pricing
-                </a>
+                </Link>
               </li>
               <li className="mr-2 mt-2 inline-block md:mr-0 md:block">
-                <a
+                <Link
                   href="mailto:jeremy@jobsearch.wtf"
                   className="text-gray-200 no-underline hover:text-pink-400 hover:underline"
                 >
                   Support
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -40,20 +41,20 @@ export default function Footer() {
             <p className="uppercase text-white md:mb-6">Legal</p>
             <ul className="list-reset mb-6">
               <li className="mr-2 mt-2 inline-block md:mr-0 md:block">
-                <a
+                <Link
                   href="#"
                   className="text-gray-200 no-underline hover:text-pink-400 hover:underline"
                 >
                   Terms of service
-                </a>
+                </Link>
               </li>
               <li className="mr-2 mt-2 inline-block md:mr-0 md:block">
-                <a
+                <Link
                   href="#"
                   className="text-gray-200 no-underline hover:text-pink-400 hover:underline"
                 >
                   Privacy policy
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -61,20 +62,20 @@ export default function Footer() {
             <p className="uppercase text-white md:mb-6">More</p>
             <ul className="list-reset mb-6">
               <li className="mr-2 mt-2 inline-block md:mr-0 md:block">
-                <a
+                <Link
                   href="https://www.jeremywinterberg.com"
                   className="text-gray-200 no-underline hover:text-pink-400 hover:underline"
                 >
                   Blog
-                </a>
+                </Link>
               </li>
               <li className="mr-2 mt-2 inline-block md:mr-0 md:block">
-                <a
-                  href="/about"
+                <Link
+                  href="#"
                   className="text-gray-200 no-underline hover:text-pink-400 hover:underline"
                 >
                   About Us
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
