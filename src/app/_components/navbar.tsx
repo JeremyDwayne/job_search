@@ -4,10 +4,10 @@ import Link from "next/link";
 
 export default function Navbar({ session }: { session: Session | null }) {
   return (
-    <div className="navbar bg-slate-100">
+    <div className="navbar bg-cyan-900">
       <div className="flex-1">
-        <Link href="/" className="text-xl">
-          JobSearch.wtf
+        <Link href="/" className="text-xl font-extrabold text-white">
+          JOBSEARCH.<i className="text-pink-500">wtf</i>
         </Link>
       </div>
       <div className="flex-none gap-2">
@@ -15,6 +15,7 @@ export default function Navbar({ session }: { session: Session | null }) {
           <div
             tabIndex={0}
             role="button"
+            aria-label="profile-button"
             className="avatar btn btn-circle btn-ghost"
           >
             <div className="w-10 rounded-full">
