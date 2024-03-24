@@ -38,7 +38,8 @@ export const env = createEnv({
    * `NEXT_PUBLIC_`.
    */
   client: {
-    // NEXT_PUBLIC_CLIENTVAR: z.string(),
+    NEXT_PUBLIC_STRIPE_LIFETIME_URL: z.string(),
+    NEXT_PUBLIC_STRIPE_MONTHLY_URL: z.string(),
   },
 
   /**
@@ -55,6 +56,9 @@ export const env = createEnv({
     DISCORD_CLIENT_SECRET: process.env.DISCORD_CLIENT_SECRET,
     GITHUB_ID: process.env.GITHUB_ID,
     GITHUB_SECRET: process.env.GITHUB_SECRET,
+    NEXT_PUBLIC_STRIPE_LIFETIME_URL:
+      process.env.NEXT_PUBLIC_STRIPE_LIFETIME_URL,
+    NEXT_PUBLIC_STRIPE_MONTHLY_URL: process.env.NEXT_PUBLIC_STRIPE_MONTHLY_URL,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially

@@ -1,4 +1,6 @@
+import Link from "next/link";
 import { Checkmark, PaperAirplane } from "./svgIcons";
+import { env } from "~/env";
 
 export default function Pricing() {
   return (
@@ -48,7 +50,7 @@ export default function Pricing() {
               <div className="space-y-2">
                 <a
                   className="group btn btn-primary btn-block "
-                  href="https://stripe.com/"
+                  href={env.NEXT_PUBLIC_STRIPE_MONTHLY_URL}
                 >
                   Get JobSearch
                   <PaperAirplane />
@@ -96,13 +98,13 @@ export default function Pricing() {
                 </li>
               </ul>
               <div className="space-y-2">
-                <a
+                <Link
                   className="group btn btn-primary btn-block "
-                  href="https://stripe.com/"
+                  href={env.NEXT_PUBLIC_STRIPE_LIFETIME_URL}
                 >
                   Get JobSearch
                   <PaperAirplane />
-                </a>
+                </Link>
                 <p className=" text-base-content-secondary relative text-center text-sm font-medium">
                   One-time payment, then{" "}
                   <span className="underline">it&apos;s yours forever</span>
