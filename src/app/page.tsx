@@ -1,13 +1,13 @@
-import { Navbar } from "./_components/Navbar";
-import Pricing from "./_components/Pricing";
+import { Navbar } from "./components/navbar";
+import Pricing from "./components/pricing";
 import Image from "next/image";
 
 import {
   FeaturesTopWave,
   FeaturesBottomWave,
-} from "./_components/WaveSeparators";
-import Footer from "./_components/Footer";
-import { Checkmark, Crossmark } from "./_components/SvgIcons";
+} from "./components/waveSeparators";
+import Footer from "./components/footer";
+import { Checkmark, Crossmark } from "./components/svgIcons";
 
 export default function Home() {
   return (

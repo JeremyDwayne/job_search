@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Checkmark, PaperAirplane } from "./SvgIcons";
+import { Checkmark, PaperAirplane } from "./svgIcons";
 import { env } from "~/env";
 
 export default function Pricing() {
