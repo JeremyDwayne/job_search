@@ -1,4 +1,4 @@
-import { Checkmark, PaperAirplane } from "./svg_icons";
+import { Checkmark, PaperAirplane } from "./svgIcons";
 
 export default function Pricing() {
   return (

@@ -7,7 +7,8 @@ import { getServerAuthSession } from "~/server/auth";
 import {
   FeaturesTopWave,
   FeaturesBottomWave,
-} from "./_components/wave_separators";
+} from "./_components/waveSeparators";
+import Footer from "./_components/footer";
 
 export default async function Home() {
   const session = await getServerAuthSession();
@@ -62,9 +63,9 @@ export default async function Home() {
                   </div>
                   <div className="mt-auto flex-none overflow-hidden rounded-b rounded-t-none bg-white p-6 shadow">
                     <div className="flex items-center justify-center">
-                      <button className="focus:shadow-outline mx-auto my-6 transform rounded-full bg-cyan-900 px-8 py-4 font-bold text-white shadow-lg transition duration-300 ease-in-out hover:scale-105 hover:underline focus:outline-none lg:mx-0">
+                      <Link href="#" className="btn btn-primary">
                         Action
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -81,9 +82,9 @@ export default async function Home() {
                   </div>
                   <div className="mt-auto flex-none overflow-hidden rounded-b rounded-t-none bg-white p-6 shadow">
                     <div className="flex items-center justify-center">
-                      <button className="ocus:shadow-outline mx-auto my-6 transform rounded-full bg-cyan-900 px-8 py-4 font-bold text-white shadow-lg transition duration-300 ease-in-out hover:scale-105 hover:underline focus:outline-none lg:mx-0">
+                      <Link href="#" className="btn btn-primary">
                         Action
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -100,9 +101,9 @@ export default async function Home() {
                   </div>
                   <div className="mt-auto flex-none overflow-hidden rounded-b rounded-t-none bg-white p-6 shadow">
                     <div className="flex items-center justify-center">
-                      <button className="focus:shadow-outline mx-auto my-6 transform rounded-full bg-cyan-900 px-8 py-4 font-bold text-white shadow-lg transition duration-300 ease-in-out hover:scale-105 hover:underline focus:outline-none lg:mx-0">
+                      <Link href="#" className="btn btn-primary">
                         Action
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -113,6 +114,7 @@ export default async function Home() {
           <Pricing />
         </div>
       </main>
+      <Footer />
     </>
   );
 }
