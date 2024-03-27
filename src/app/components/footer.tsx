@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { FullLogo } from "./logo";
 
-export default function Footer() {
+export const Footer = () => {
   return (
     <footer className="footer bottom-0 mt-10 bg-cyan-900 text-white">
       <div className="container mx-auto px-8">
@@ -83,4 +83,4 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+};

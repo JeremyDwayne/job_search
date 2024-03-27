@@ -2,7 +2,7 @@ import { FullLogo } from "./logo";
 import LoginNav from "./loginNav";
 import { getServerAuthSession } from "~/server/auth";
 
-export const Navbar = async () => {
+export const Header = async () => {
   const sessionData = await getServerAuthSession();
 
   return (
