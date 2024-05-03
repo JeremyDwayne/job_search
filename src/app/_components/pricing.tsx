@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { Checkmark, PaperAirplane } from "./svgIcons";
+import { PaperAirplane } from "./svgIcons";
 import { env } from "~/env";
 import { buttonVariants } from "~/components/ui/button";
+import { Check } from "lucide-react";
 
 export default function Pricing() {
   return (
@@ -39,11 +40,11 @@ export default function Pricing() {
               </div>
               <ul className="flex-1 space-y-2.5 text-base leading-relaxed">
                 <li className="flex items-center gap-2">
-                  <Checkmark />
+                  <Check className="text-green-400" />
                   <span>Access to all features</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <Checkmark />
+                  <Check className="text-green-400" />
                   <span>Pay as you go, cancel when you land your job!</span>
                 </li>
               </ul>
@@ -87,11 +88,11 @@ export default function Pricing() {
               </div>
               <ul className="flex-1 space-y-2.5 text-base leading-relaxed">
                 <li className="flex items-center gap-2">
-                  <Checkmark />
+                  <Check className="text-green-400" />
                   <span>Access to all current and future features</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <Checkmark />
+                  <Check className="text-green-400" />
                   <span>
                     <span className="bg-green-200/60 px-1">Lifetime</span>{" "}
                     access with a no recurring fees

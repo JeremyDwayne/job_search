@@ -5,7 +5,7 @@ import {
   FeaturesTopWave,
   FeaturesBottomWave,
 } from "./_components/waveSeparators";
-import { Checkmark, Crossmark } from "./_components/svgIcons";
+import { X, Check } from "lucide-react";
 
 export default function Home() {
   return (
@@ -48,20 +48,20 @@ export default function Home() {
                   <div className="my-5 px-6 text-gray-800">
                     <ul className="flex-1 space-y-2.5 leading-relaxed">
                       <li className="flex items-center gap-2">
-                        <Checkmark />
+                        <Check className="text-green-400" />
                         Track job applications and scheduled interviews
                       </li>
                       <li className="flex items-center gap-2">
-                        <Checkmark />
+                        <Check className="text-green-400" />
                         Capturing insightful notes and conduct retrospectives
                       </li>
                       <li className="flex items-center gap-2">
-                        <Checkmark />
+                        <Check className="text-green-400" />
                         Rank companies and offers to help make informed career
                         choices
                       </li>
                       <li className="flex items-center gap-2">
-                        <Checkmark />
+                        <Check className="text-green-400" />
                         Compare your current company to those you&apos;re
                         interviewing with
                       </li>
@@ -75,22 +75,22 @@ export default function Home() {
                   <div className="my-5 px-6 text-gray-800">
                     <ul className="flex-1 space-y-2.5 leading-relaxed">
                       <li className="flex items-center gap-2">
-                        <Checkmark />
+                        <Check className="text-green-400" />
                         Discover skill gaps to focus your studies for the next
                         interview
                       </li>
                       <li className="flex items-center gap-2">
-                        <Checkmark />
+                        <Check className="text-green-400" />
                         Eliminate ghosting through automated reminders for
                         proactive follow-ups
                       </li>
                       <li className="flex items-center gap-2">
-                        <Crossmark />
+                        <X className="text-rose-400" />
                         No more manual spreadsheets or digging through email
                         threads
                       </li>
                       <li className="flex items-center gap-2">
-                        <Crossmark />
+                        <X className="text-rose-400" />
                         Stop wasting time on repetitive tasks and focus on
                         landing your dream job
                       </li>

@@ -7,6 +7,7 @@ await import("./src/env.js");
 /** @type {import("next").NextConfig} */
 
 const coreConfig = {
+  transpilePackages: ["lucide-react"],
   typescript: {
     ignoreBuildErrors: true,
   },

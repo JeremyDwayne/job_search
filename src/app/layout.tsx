@@ -28,7 +28,7 @@ export default function RootLayout({
         <body className={`font-sans ${inter.variable}`}>
           <Header />
           <TRPCReactProvider>
-            <main className="flex min-h-screen flex-col items-center justify-center bg-white">
+            <main className="m-8 flex min-h-screen flex-col items-center bg-white">
               {children}
             </main>
           </TRPCReactProvider>
