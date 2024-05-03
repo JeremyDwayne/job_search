@@ -17,12 +17,6 @@ const coreConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "daisyui.com",
-        port: "",
-        pathname: "/images/**",
-      },
-      {
-        protocol: "https",
         hostname: "avatars.githubusercontent.com",
         port: "",
         pathname: "/u/**",

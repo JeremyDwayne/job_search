@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Checkmark, PaperAirplane } from "./svgIcons";
 import { env } from "~/env";
+import { buttonVariants } from "~/components/ui/button";
 
 export default function Pricing() {
   return (
@@ -22,17 +23,16 @@ export default function Pricing() {
         </div>
         <div className="relative mb-16 flex flex-col items-center justify-center gap-8 lg:flex-row lg:items-stretch">
           <div className="relative w-full max-w-lg">
-            <div className="relative z-10 flex h-full flex-col gap-5 rounded-lg bg-base-200 p-8 lg:gap-8">
+            <div className="bg-base-200 relative z-10 flex h-full flex-col gap-5 rounded-lg p-8 lg:gap-8">
               <div className="flex flex-wrap gap-2">
                 <div className="mb-[4px] flex flex-col justify-end text-lg ">
                   <p className="relative">
-                    <span className="absolute inset-x-0 top-[53%] h-[1.5px] bg-base-content"></span>
-                    <span className="text-base-content/80">$19</span>
+                    <span className="text-slate-500/80 line-through">$19</span>
                   </p>
                 </div>
                 <p className="text-5xl font-extrabold tracking-tight">$9.99</p>
                 <div className="mb-[4px] flex flex-col justify-end">
-                  <p className="text-xs font-semibold uppercase text-base-content/60">
+                  <p className="text-base-content/60 text-xs font-semibold uppercase">
                     USD/month
                   </p>
                 </div>
@@ -48,13 +48,15 @@ export default function Pricing() {
                 </li>
               </ul>
               <div className="space-y-2">
-                <a
-                  className="group btn btn-primary btn-block "
+                <Link
+                  className={`w-full ${buttonVariants({ variant: "default" })}`}
                   href={env.NEXT_PUBLIC_STRIPE_MONTHLY_URL}
                 >
                   Get JobSearch
-                  <PaperAirplane />
-                </a>
+                  <span className="ml-2">
+                    <PaperAirplane />
+                  </span>
+                </Link>
                 <p className=" text-base-content-secondary relative text-center text-sm font-medium">
                   Billed monthly,{" "}
                   <span className="underline">cancel anytime</span>
@@ -64,22 +66,21 @@ export default function Pricing() {
           </div>
           <div className="relative w-full max-w-lg">
             <div className="absolute left-1/2 top-0 z-20 -translate-x-1/2 -translate-y-1/2">
-              <span className="badge whitespace-nowrap border-0 bg-primary text-xs font-medium text-primary-content">
+              <span className="badge text-primary-content whitespace-nowrap border-0 bg-green-200 text-xs font-medium">
                 LIFETIME ACCESS
               </span>
             </div>
-            <div className="absolute -inset-[1px] z-10 rounded-[9px] bg-primary"></div>
-            <div className="relative z-10 flex h-full flex-col gap-5 rounded-lg bg-base-200 p-8 lg:gap-8">
+            <div className="absolute -inset-[1px] z-10 rounded-[9px] border-2 border-green-200"></div>
+            <div className="bg-base-200 relative z-10 flex h-full flex-col gap-5 rounded-lg p-8 lg:gap-8">
               <div className="flex flex-wrap gap-2">
                 <div className="mb-[4px] flex flex-col justify-end text-lg ">
                   <p className="relative">
-                    <span className="absolute inset-x-0 top-[53%] h-[1.5px] bg-base-content"></span>
-                    <span className="text-base-content/80">$199</span>
+                    <span className="text-slate-500/80 line-through">$199</span>
                   </p>
                 </div>
                 <p className="text-5xl font-extrabold tracking-tight">$99</p>
                 <div className="mb-[4px] flex flex-col justify-end">
-                  <p className="text-xs font-semibold uppercase text-base-content/60">
+                  <p className="text-base-content/60 text-xs font-semibold uppercase">
                     USD
                   </p>
                 </div>
@@ -92,18 +93,20 @@ export default function Pricing() {
                 <li className="flex items-center gap-2">
                   <Checkmark />
                   <span>
-                    <span className="bg-primary/40 px-1">Lifetime</span> access
-                    with a no recurring fees
+                    <span className="bg-green-200/60 px-1">Lifetime</span>{" "}
+                    access with a no recurring fees
                   </span>
                 </li>
               </ul>
               <div className="space-y-2">
                 <Link
-                  className="group btn btn-primary btn-block "
+                  className={`w-full ${buttonVariants({ variant: "default" })}`}
                   href={env.NEXT_PUBLIC_STRIPE_LIFETIME_URL}
                 >
                   Get JobSearch
-                  <PaperAirplane />
+                  <span className="ml-2">
+                    <PaperAirplane />
+                  </span>
                 </Link>
                 <p className=" text-base-content-secondary relative text-center text-sm font-medium">
                   One-time payment, then{" "}
