@@ -1,8 +1,8 @@
 import CreateApplicationForm from "./CreateApplicationForm";
-import { getJobApplications } from "~/server/queries";
+import { getMyJobApplications } from "~/server/queries";
 
 export default async function ApplicationsPage() {
-  const applications = await getJobApplications();
+  const applications = await getMyJobApplications();
 
   return (
     <div className="mt-0 pt-0">
