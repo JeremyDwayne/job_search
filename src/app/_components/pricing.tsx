@@ -16,7 +16,7 @@ export default function Pricing() {
           <h2 className="mx-auto mb-8 max-w-3xl text-3xl font-bold tracking-tight lg:text-5xl ">
             Stop missing out on job opportunities
           </h2>
-          <div className="text-base-content-secondary mx-auto max-w-md">
+          <div className="mx-auto max-w-md text-slate-700">
             Streamline the entire process and enable yourself to navigate your
             career with clarity and confidence.
           </div>
@@ -32,7 +32,7 @@ export default function Pricing() {
                 </div>
                 <p className="text-5xl font-extrabold tracking-tight">$9.99</p>
                 <div className="mb-[4px] flex flex-col justify-end">
-                  <p className="text-base-content/60 text-xs font-semibold uppercase">
+                  <p className="text-slate-content/60 text-xs font-semibold uppercase">
                     USD/month
                   </p>
                 </div>
@@ -57,7 +57,7 @@ export default function Pricing() {
                     <PaperAirplane />
                   </span>
                 </Link>
-                <p className=" text-base-content-secondary relative text-center text-sm font-medium">
+                <p className=" text-slate-content-secondary relative text-center text-sm font-medium">
                   Billed monthly,{" "}
                   <span className="underline">cancel anytime</span>
                 </p>
@@ -80,7 +80,7 @@ export default function Pricing() {
                 </div>
                 <p className="text-5xl font-extrabold tracking-tight">$99</p>
                 <div className="mb-[4px] flex flex-col justify-end">
-                  <p className="text-base-content/60 text-xs font-semibold uppercase">
+                  <p className="text-slate-content/60 text-xs font-semibold uppercase">
                     USD
                   </p>
                 </div>
@@ -108,7 +108,7 @@ export default function Pricing() {
                     <PaperAirplane />
                   </span>
                 </Link>
-                <p className=" text-base-content-secondary relative text-center text-sm font-medium">
+                <p className=" text-slate-content-secondary relative text-center text-sm font-medium">
                   One-time payment, then{" "}
                   <span className="underline">it&apos;s yours forever</span>
                 </p>

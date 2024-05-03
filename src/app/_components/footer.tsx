@@ -8,11 +8,11 @@ export const Footer = () => {
         <div className="flex w-full flex-col py-6 md:flex-row">
           <div className="mb-6 mr-6 flex-1">
             <FullLogo />
-            <p className="mt-3 text-sm text-base-300/80">
+            <p className="mt-3 text-sm text-slate-300/80">
               A comprehensive platform empowering software engineers to
               effortlessly manage their job search.{" "}
             </p>
-            <p className="mt-3 text-sm text-base-300/60">
+            <p className="mt-3 text-sm text-slate-300/60">
               Copyright © 2024 - All rights reserved
             </p>
           </div>

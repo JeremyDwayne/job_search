@@ -45,8 +45,8 @@ export default function Home() {
               </div>
               <div className="flex w-full flex-shrink flex-grow flex-col p-6 md:w-1/3">
                 <div className="flex-1 overflow-hidden rounded bg-white shadow">
-                  <div className="my-5 px-6 text-base text-gray-800">
-                    <ul className="flex-1 space-y-2.5 text-base leading-relaxed">
+                  <div className="my-5 px-6 text-gray-800">
+                    <ul className="flex-1 space-y-2.5 leading-relaxed">
                       <li className="flex items-center gap-2">
                         <Checkmark />
                         Track job applications and scheduled interviews
@@ -72,8 +72,8 @@ export default function Home() {
 
               <div className="flex w-full flex-shrink flex-grow flex-col p-6 md:w-1/3">
                 <div className="flex-1 overflow-hidden rounded bg-white shadow">
-                  <div className="my-5 px-6 text-base text-gray-800">
-                    <ul className="flex-1 space-y-2.5 text-base leading-relaxed">
+                  <div className="my-5 px-6 text-gray-800">
+                    <ul className="flex-1 space-y-2.5 leading-relaxed">
                       <li className="flex items-center gap-2">
                         <Checkmark />
                         Discover skill gaps to focus your studies for the next
