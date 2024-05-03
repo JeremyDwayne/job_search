@@ -1,11 +1,11 @@
-import Pricing from "./components/pricing";
+import Pricing from "./_components/pricing";
 import Image from "next/image";
 
 import {
   FeaturesTopWave,
   FeaturesBottomWave,
-} from "./components/waveSeparators";
-import { Checkmark, Crossmark } from "./components/svgIcons";
+} from "./_components/waveSeparators";
+import { Checkmark, Crossmark } from "./_components/svgIcons";
 
 export default function Home() {
   return (

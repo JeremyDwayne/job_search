@@ -2,8 +2,9 @@ import "~/styles/globals.css";
 
 import { Inter } from "next/font/google";
 import { TRPCReactProvider } from "~/trpc/react";
-import { Footer } from "./components/footer";
-import { Header } from "./components/header";
+import { Footer } from "./_components/footer";
+import { Header } from "./_components/header";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -22,16 +23,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" data-theme="cupcake">
-      <body className={`font-sans ${inter.variable}`}>
-        <Header />
-        <TRPCReactProvider>
-          <main className="flex min-h-screen flex-col items-center justify-center bg-white">
-            {children}
-          </main>
-        </TRPCReactProvider>
-        <Footer />
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en" data-theme="cupcake">
+        <body className={`font-sans ${inter.variable}`}>
+          <Header />
+          <TRPCReactProvider>
+            <main className="flex min-h-screen flex-col items-center justify-center bg-white">
+              {children}
+            </main>
+          </TRPCReactProvider>
+          <Footer />
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

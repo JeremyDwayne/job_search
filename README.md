@@ -11,8 +11,19 @@ Open to ideas for a better name lol.
 - React
 - Next.js
 - Tailwind CSS
-- Supabase Postgres
-- Prisma ORM
+- Turso
+- Drizzle
 - tRPC
 - Vercel
-- NextAuth.js
+- Clerk Auth
+
+## TODO
+- [x] Make it deploy (vercel)
+- [x] Scaffold basic ui
+- [x] setup database (Turso)
+- [x] attach db to ui
+- [x] add auth (Clerk)
+- [ ] Error management (Sentry)
+- [ ] routing (parallel route)
+- [ ] Analytics (posthog)
+- [ ] Rate limiting (upstash)
