@@ -5,8 +5,8 @@ import { env } from "~/env";
 dotenv.config();
 
 export default {
-  schema: "~/server/db/schema",
-  out: "~/server/db/migrations",
+  schema: "./src/server/db/schema.ts",
+  out: "./src/server/db/migrations",
   driver: "turso",
   dbCredentials: {
     url: env.TURSO_DATABASE_URL,
