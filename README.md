@@ -23,8 +23,8 @@ Open to ideas for a better name lol.
 - [x] setup database (Turso)
 - [x] attach db to ui
 - [x] add auth (Clerk)
-- [ ] add job applications
-- [ ] Error management (Sentry)
+- [x] add job applications
+- [x] Error management (Sentry)
 - [ ] routing (parallel route)
 - [ ] Analytics (posthog)
 - [ ] Rate limiting (upstash)
