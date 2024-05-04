@@ -22,12 +22,13 @@ export default async function ApplicationsPage() {
         </h1>
         <Link
           className={`relative flex-row ${buttonVariants({ variant: "default" })}`}
-          href="/applications/create"
+          href="/applications/new"
         >
           <Plus />
         </Link>
       </div>
       <div className="flex flex-wrap items-center justify-center gap-4 p-4">
+        {/* TODO: remove the faked data */}
         {[...applications, ...applications, ...applications].map(
           (application) => (
             <Card key={application.id} className="flex w-80 flex-col">

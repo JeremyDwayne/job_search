@@ -8,14 +8,12 @@ export const Header = async () => {
       <div className="flex-1">
         <FullLogo />
       </div>
-      <div className="mr-4 flex flex-row items-center gap-4">
-        <Link href="/applications">Jobs</Link>
-      </div>
       <div className="flex flex-row items-center gap-4">
         <SignedOut>
           <SignInButton />
         </SignedOut>
         <SignedIn>
+          <Link href="/applications">Jobs</Link>
           <UserButton />
         </SignedIn>
       </div>

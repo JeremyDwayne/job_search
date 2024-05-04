@@ -67,7 +67,7 @@ export default function Pricing() {
           </div>
           <div className="relative w-full max-w-lg">
             <div className="absolute left-1/2 top-0 z-20 -translate-x-1/2 -translate-y-1/2">
-              <span className="badge text-primary-content whitespace-nowrap border-0 bg-green-200 text-xs font-medium">
+              <span className="badge text-primary-content whitespace-nowrap border-0 bg-green-200 p-1 text-xs font-medium">
                 LIFETIME ACCESS
               </span>
             </div>
@@ -94,8 +94,8 @@ export default function Pricing() {
                 <li className="flex items-center gap-2">
                   <Check className="text-green-400" />
                   <span>
-                    <span className="bg-green-200/60 px-1">Lifetime</span>{" "}
-                    access with a no recurring fees
+                    <span className="bg-green-200/60 p-1">Lifetime</span> access
+                    with a no recurring fees
                   </span>
                 </li>
               </ul>

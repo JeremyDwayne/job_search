@@ -28,15 +28,15 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en" data-theme="cupcake">
         <body className={`font-sans ${inter.variable}`}>
+          <div className="grid h-screen grid-rows-[auto,4fr,.5fr]">
+            <Header />
+            <TRPCReactProvider>
+              <main className="mt-8 bg-white">{children}</main>
+            </TRPCReactProvider>
+            <Footer />
+          </div>
           {modal}
           <div id="modal-root" />
-          <div className="grid h-screen grid-rows-[auto,4fr,.5fr]">
-            <TRPCReactProvider>
-              <Header />
-              <main className="mt-8 bg-white">{children}</main>
-              <Footer />
-            </TRPCReactProvider>
-          </div>
         </body>
       </html>
     </ClerkProvider>
