@@ -22,7 +22,7 @@ const formSchema = z.object({
   salary_high: z.string().max(50),
 });
 
-export default function CreateApplicationForm() {
+export default function CreateJobApplicationForm() {
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),

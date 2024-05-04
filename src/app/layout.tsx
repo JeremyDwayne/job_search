@@ -19,8 +19,10 @@ export const metadata = {
 
 export default function RootLayout({
   children,
+  modal,
 }: {
   children: React.ReactNode;
+  modal: React.ReactNode;
 }) {
   return (
     <ClerkProvider>
@@ -28,8 +30,10 @@ export default function RootLayout({
         <body className={`font-sans ${inter.variable}`}>
           <Header />
           <TRPCReactProvider>
-            <main className="m-8 flex min-h-screen flex-col items-center bg-white">
+            <main className="max-w-screen m-8 min-h-screen bg-white">
               {children}
+              {modal}
+              <div id="modal-root" />
             </main>
           </TRPCReactProvider>
           <Footer />

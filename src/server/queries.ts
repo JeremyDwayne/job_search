@@ -13,3 +13,18 @@ export async function getMyJobApplications() {
 
   return applications;
 }
+
+export async function getJobApplication(id: number) {
+  const user = auth();
+  if (!user.userId) throw new Error("Unauthorized");
+
+  const application = await db.query.job_applications.findFirst({
+    where: (model, { eq }) => eq(model.id, id),
+    orderBy: (model, { desc }) => desc(model.updatedAt),
+  });
+
+  if (!application) throw new Error("Application not found");
+  if (user.userId !== application.userId) throw new Error("Unauthorized");
+
+  return application;
+}

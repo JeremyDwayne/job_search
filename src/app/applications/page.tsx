@@ -6,20 +6,26 @@ import {
   CardHeader,
   CardTitle,
 } from "~/components/ui/card";
-import CreateApplicationForm from "./CreateApplicationForm";
 import { getMyJobApplications } from "~/server/queries";
-import { Button, buttonVariants } from "~/components/ui/button";
-import { Check } from "lucide-react";
+import { buttonVariants } from "~/components/ui/button";
+import { Check, Plus } from "lucide-react";
 import Link from "next/link";
 
 export default async function ApplicationsPage() {
   const applications = await getMyJobApplications();
 
   return (
-    <>
-      <div>
-        <h1 className="text-bold text-2xl">Applications</h1>
-        <CreateApplicationForm />
+    <div className="text-black">
+      <div className="container flex border-b pb-2">
+        <h1 className="text-bold flex-1 justify-between text-2xl">
+          Applications
+        </h1>
+        <Link
+          className={`relative flex-row ${buttonVariants({ variant: "default" })}`}
+          href="/applications/create"
+        >
+          <Plus />
+        </Link>
       </div>
       <div className="flex flex-wrap items-center justify-center gap-4 p-4">
         {applications.map((application) => (
@@ -45,13 +51,16 @@ export default async function ApplicationsPage() {
               </div>
             </CardContent>
             <CardFooter>
-              <Button className="w-full">
+              <Link
+                className={`w-full ${buttonVariants({ variant: "default" })}`}
+                href={`/job/${application.id}`}
+              >
                 <Check className="mr-2 h-4 w-4" /> View
-              </Button>
+              </Link>
             </CardFooter>
           </Card>
         ))}
       </div>
-    </>
+    </div>
   );
 }
