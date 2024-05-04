@@ -1,6 +1,5 @@
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import { FullLogo } from "./logo";
-// import LoginNav from "./loginNav";
 import Link from "next/link";
 
 export const Header = async () => {

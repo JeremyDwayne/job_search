@@ -3,9 +3,8 @@
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 
 import * as Sentry from "@sentry/nextjs";
-import { env } from "~/env";
 
-if (env.NODE_ENV === "production") {
+if (process.env.VERCEL_ENV) {
   Sentry.init({
     dsn: "https://157f1f923fd1cc1a455adcb9a4a41298@o4507194421280768.ingest.us.sentry.io/4507194425802752",
 

@@ -25,7 +25,7 @@ Open to ideas for a better name lol.
 - [x] add auth (Clerk)
 - [x] add job applications
 - [x] Error management (Sentry)
-- [ ] replace daisyui with shadui
+- [x] replace daisyui with shadui
 - [ ] routing (parallel route)
 - [ ] Analytics (posthog)
 - [ ] Rate limiting (upstash)
