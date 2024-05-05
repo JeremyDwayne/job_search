@@ -39,7 +39,7 @@ export default async function ApplicationsPage() {
               <CardContent>
                 <p>
                   <Link
-                    href={application.job_description_url ?? "#"}
+                    href={application.jobDescriptionUrl ?? "#"}
                     className={`${buttonVariants({ variant: "outline" })}`}
                   >
                     Job Description
@@ -48,7 +48,7 @@ export default async function ApplicationsPage() {
                 <div className="mt-4 space-y-1">
                   <p className="text-sm">Salary Range</p>
                   <p>
-                    {application.salary_low}-{application.salary_high}
+                    {application.salaryRangeLow}-{application.salaryRangeHigh}
                   </p>
                 </div>
               </CardContent>

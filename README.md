@@ -26,7 +26,7 @@ A comprehensive platform empowering software engineers to effortlessly manage th
 - [x] replace daisyui with shadui
 - [x] routing (parallel route)
 - [x] switch to dark mode
-- [ ] Job Application form routing/save to DB
+- [x] Job Application form routing/save to DB
 - [x] Analytics (posthog)
 - [ ] Rate limiting (upstash)
 - [ ] Style dark mode to look more modern

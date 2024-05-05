@@ -1,7 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { type SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
 import { Button } from "~/components/ui/button";
@@ -14,35 +14,40 @@ import {
   FormMessage,
 } from "~/components/ui/form";
 import { Input } from "~/components/ui/input";
-// import { insertJobApplication } from "~/server/queries";
+import { insertJobApplication } from "~/server/queries";
 
-export const jobApplicationValidator = z.object({
+export const jobApplicationFormSchema = z.object({
   company: z.string().min(2),
   title: z.string().min(2),
-  job_description_url: z.string(),
-  salary_low: z.number(),
-  salary_high: z.number(),
+  jobDescriptionUrl: z.string(),
+  salaryRangeLow: z.coerce.number(),
+  salaryRangeHigh: z.coerce.number(),
 });
 
+export type JobApplicationFormFields = z.infer<typeof jobApplicationFormSchema>;
+
 export default function JobApplicationForm() {
-  // 1. Define your form.
-  const form = useForm<z.infer<typeof jobApplicationValidator>>({
-    resolver: zodResolver(jobApplicationValidator),
+  const form = useForm<JobApplicationFormFields>({
+    resolver: zodResolver(jobApplicationFormSchema),
     defaultValues: {
       company: "",
       title: "",
-      job_description_url: "",
-      salary_low: 0,
-      salary_high: 0,
+      jobDescriptionUrl: "",
+      salaryRangeLow: 0,
+      salaryRangeHigh: 0,
     },
   });
 
-  // 2. Define a submit handler.
-  async function onSubmit(values: z.infer<typeof jobApplicationValidator>) {
-    // await insertJobApplication(values);
-    console.log(values);
-    toast("Job Application Created");
-  }
+  const onSubmit: SubmitHandler<JobApplicationFormFields> = async (data) => {
+    try {
+      await insertJobApplication(data);
+      toast("Job Application Created");
+    } catch (error) {
+      form.setError("root", {
+        message: "Application unable to be saved",
+      });
+    }
+  };
   return (
     <div>
       <h1 className="font-2xl font-bold">New Job Application</h1>
@@ -51,52 +56,58 @@ export default function JobApplicationForm() {
           <FormField
             control={form.control}
             name="company"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Company</FormLabel>
-                <FormControl>
-                  <Input {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
+            render={({ field }) => {
+              return (
+                <FormItem>
+                  <FormLabel>Company</FormLabel>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              );
+            }}
           />
           <FormField
             control={form.control}
             name="title"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Job Title</FormLabel>
-                <FormControl>
-                  <Input {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
+            render={({ field }) => {
+              return (
+                <FormItem>
+                  <FormLabel>Job Title</FormLabel>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              );
+            }}
           />
           <FormField
             control={form.control}
-            name="job_description_url"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Job Description URL</FormLabel>
-                <FormControl>
-                  <Input {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
+            name="jobDescriptionUrl"
+            render={({ field }) => {
+              return (
+                <FormItem>
+                  <FormLabel>Job Description URL</FormLabel>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              );
+            }}
           />
           <div className="flex items-center">
             <div className="flex-1">
               <FormField
                 control={form.control}
-                name="salary_low"
+                name="salaryRangeLow"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Salary Range Low End</FormLabel>
                     <FormControl>
-                      <Input {...field} />
+                      <Input type="number" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -107,12 +118,12 @@ export default function JobApplicationForm() {
             <div className="flex-1">
               <FormField
                 control={form.control}
-                name="salary_high"
+                name="salaryRangeHigh"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Salary Range High End</FormLabel>
                     <FormControl>
-                      <Input {...field} />
+                      <Input type="number" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

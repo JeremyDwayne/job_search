@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { db } from "~/server/db";
 import { privateProcedure, createTRPCRouter } from "../trpc";
-import { jobApplicationValidator } from "~/app/applications/_components/JobApplicationForm";
+import { jobApplicationFormSchema } from "~/app/applications/_components/JobApplicationForm";
 
 const jobApplicationRouter = createTRPCRouter({
   // createJobApplication: protectedProcedure

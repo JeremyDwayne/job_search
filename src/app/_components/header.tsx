@@ -13,7 +13,7 @@ export const Header = async () => {
           <SignInButton />
         </SignedOut>
         <SignedIn>
-          <Link href="/applications">Jobs</Link>
+          <Link href="/applications">Job Applications</Link>
           <UserButton />
         </SignedIn>
       </div>
