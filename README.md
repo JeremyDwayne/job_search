@@ -27,7 +27,7 @@ A comprehensive platform empowering software engineers to effortlessly manage th
 - [x] routing (parallel route)
 - [x] switch to dark mode
 - [ ] Job Application form routing/save to DB
-- [ ] Analytics (posthog)
+- [x] Analytics (posthog)
 - [ ] Rate limiting (upstash)
 - [ ] Style dark mode to look more modern
 - [ ] Add company model

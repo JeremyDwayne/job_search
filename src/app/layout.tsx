@@ -5,6 +5,8 @@ import { TRPCReactProvider } from "~/trpc/react";
 import { Footer } from "./_components/footer";
 import { Header } from "./_components/header";
 import { ClerkProvider } from "@clerk/nextjs";
+import { CSPostHogProvider } from "./_analytics/providers";
+import { Toaster } from "~/components/ui/sonner";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -26,19 +28,22 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body className={`dark font-sans ${inter.variable}`}>
-          <div className="grid h-screen grid-rows-[auto,4fr,.5fr]">
-            <Header />
-            <TRPCReactProvider>
-              <main className="mt-8">{children}</main>
-            </TRPCReactProvider>
-            <Footer />
-          </div>
-          {modal}
-          <div id="modal-root" />
-        </body>
-      </html>
+      <CSPostHogProvider>
+        <html lang="en">
+          <body className={`dark font-sans ${inter.variable}`}>
+            <div className="grid h-screen grid-rows-[auto,4fr,.5fr]">
+              <Header />
+              <TRPCReactProvider>
+                <main className="mt-8">{children}</main>
+              </TRPCReactProvider>
+              <Footer />
+            </div>
+            {modal}
+            <div id="modal-root" />
+            <Toaster />
+          </body>
+        </html>
+      </CSPostHogProvider>
     </ClerkProvider>
   );
 }

@@ -2,6 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { z } from "zod";
 import { Button } from "~/components/ui/button";
 import {
@@ -40,6 +41,7 @@ export default function JobApplicationForm() {
   async function onSubmit(values: z.infer<typeof jobApplicationValidator>) {
     // await insertJobApplication(values);
     console.log(values);
+    toast("Job Application Created");
   }
   return (
     <div>
