@@ -21,10 +21,10 @@ export function Modal({ children }: { children: React.ReactNode }) {
   return createPortal(
     <dialog
       ref={dialogRef}
-      className="flex h-screen w-screen bg-zinc-900/20"
+      className="dark flex h-screen w-screen bg-zinc-900/20"
       onClose={onDismiss}
     >
-      <div className="container m-auto items-center justify-center">
+      <div className="container m-auto items-center justify-center bg-secondary">
         {children}
       </div>
       {/* <button onClick={onDismiss} className="close-button" /> */}

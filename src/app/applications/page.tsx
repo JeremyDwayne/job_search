@@ -15,7 +15,7 @@ export default async function ApplicationsPage() {
   const applications = await getMyJobApplications();
 
   return (
-    <div className="container text-black">
+    <div className="container">
       <div className="flex border-b pb-2">
         <h1 className="text-bold flex-1 justify-between text-2xl">
           Applications

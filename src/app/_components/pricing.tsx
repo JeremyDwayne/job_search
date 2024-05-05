@@ -17,7 +17,7 @@ export default function Pricing() {
           <h2 className="mx-auto mb-8 max-w-3xl text-3xl font-bold tracking-tight lg:text-5xl ">
             Stop missing out on job opportunities
           </h2>
-          <div className="mx-auto max-w-md text-slate-700">
+          <div className="mx-auto max-w-md text-primary/90">
             Streamline the entire process and enable yourself to navigate your
             career with clarity and confidence.
           </div>
@@ -28,10 +28,10 @@ export default function Pricing() {
               <div className="flex flex-wrap gap-2">
                 <div className="mb-[4px] flex flex-col justify-end text-lg ">
                   <p className="relative">
-                    <span className="text-slate-500/80 line-through">$19</span>
+                    <span className="text-slate-500/80 line-through">$10</span>
                   </p>
                 </div>
-                <p className="text-5xl font-extrabold tracking-tight">$9.99</p>
+                <p className="text-5xl font-extrabold tracking-tight">$5</p>
                 <div className="mb-[4px] flex flex-col justify-end">
                   <p className="text-slate-content/60 text-xs font-semibold uppercase">
                     USD/month
@@ -67,7 +67,7 @@ export default function Pricing() {
           </div>
           <div className="relative w-full max-w-lg">
             <div className="absolute left-1/2 top-0 z-20 -translate-x-1/2 -translate-y-1/2">
-              <span className="badge text-primary-content whitespace-nowrap border-0 bg-green-200 p-1 text-xs font-medium">
+              <span className="badge whitespace-nowrap border-0 bg-green-200 p-1 text-xs font-medium text-secondary">
                 LIFETIME ACCESS
               </span>
             </div>
@@ -94,8 +94,10 @@ export default function Pricing() {
                 <li className="flex items-center gap-2">
                   <Check className="text-green-400" />
                   <span>
-                    <span className="bg-green-200/60 p-1">Lifetime</span> access
-                    with a no recurring fees
+                    <span className="bg-green-200 p-1 text-secondary">
+                      Lifetime
+                    </span>{" "}
+                    access with a no recurring fees
                   </span>
                 </li>
               </ul>

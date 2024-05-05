@@ -25,8 +25,11 @@ A comprehensive platform empowering software engineers to effortlessly manage th
 - [x] Error management (Sentry)
 - [x] replace daisyui with shadui
 - [x] routing (parallel route)
+- [x] switch to dark mode
+- [ ] Job Application form routing/save to DB
 - [ ] Analytics (posthog)
 - [ ] Rate limiting (upstash)
+- [ ] Style dark mode to look more modern
 - [ ] Add company model
   - [ ] adjust db to associate relation with company on applications
   - [ ] Ranking of company for that job application

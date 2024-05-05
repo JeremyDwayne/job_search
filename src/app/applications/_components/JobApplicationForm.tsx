@@ -13,30 +13,32 @@ import {
   FormMessage,
 } from "~/components/ui/form";
 import { Input } from "~/components/ui/input";
+// import { insertJobApplication } from "~/server/queries";
 
-const formSchema = z.object({
-  company: z.string().min(2).max(50),
-  title: z.string().min(2).max(50),
-  job_description_url: z.string().max(50),
-  salary_low: z.string().max(50),
-  salary_high: z.string().max(50),
+export const jobApplicationValidator = z.object({
+  company: z.string().min(2),
+  title: z.string().min(2),
+  job_description_url: z.string(),
+  salary_low: z.number(),
+  salary_high: z.number(),
 });
 
 export default function JobApplicationForm() {
   // 1. Define your form.
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<z.infer<typeof jobApplicationValidator>>({
+    resolver: zodResolver(jobApplicationValidator),
     defaultValues: {
       company: "",
       title: "",
       job_description_url: "",
-      salary_low: "",
-      salary_high: "",
+      salary_low: 0,
+      salary_high: 0,
     },
   });
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof jobApplicationValidator>) {
+    // await insertJobApplication(values);
     console.log(values);
   }
   return (

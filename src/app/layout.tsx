@@ -26,12 +26,12 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="en" data-theme="cupcake">
-        <body className={`font-sans ${inter.variable}`}>
+      <html lang="en">
+        <body className={`dark font-sans ${inter.variable}`}>
           <div className="grid h-screen grid-rows-[auto,4fr,.5fr]">
             <Header />
             <TRPCReactProvider>
-              <main className="mt-8 bg-white">{children}</main>
+              <main className="mt-8">{children}</main>
             </TRPCReactProvider>
             <Footer />
           </div>

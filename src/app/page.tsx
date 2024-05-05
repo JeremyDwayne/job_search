@@ -9,17 +9,19 @@ import { X, Check } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-white">
+    <div className="flex min-h-screen flex-col items-center justify-center">
       <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
         <div className="w-screen">
           <div className="container mx-auto flex max-w-5xl flex-col flex-wrap items-center px-3 md:flex-row">
-            <div className="flex w-full flex-col items-start justify-center text-center text-black md:w-2/5 md:text-left">
-              <p className="tracking-loose w-full uppercase">Job Hunting?</p>
+            <div className="flex w-full flex-col items-start justify-center text-center md:w-2/5 md:text-left">
+              <p className="tracking-loose w-full text-2xl uppercase">
+                Job Hunting?
+              </p>
               <h1 className="my-4 text-5xl font-bold leading-tight">
                 Effortlessly manage your job search.
               </h1>
               <p className="mb-8 text-2xl leading-normal">
-                Enabling engineers to navigate their career with clarity and
+                Enabling you to navigate your career with clarity and
                 confidence.
               </p>
             </div>
