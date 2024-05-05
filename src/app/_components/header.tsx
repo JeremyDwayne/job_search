@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const Header = async () => {
   return (
-    <nav className="flex w-full items-center justify-between border-b bg-cyan-900 p-4 text-xl font-semibold text-white">
+    <nav className="flex w-full items-center justify-between border-b bg-secondary p-4 text-xl font-semibold text-white">
       <div className="flex-1">
         <FullLogo />
       </div>

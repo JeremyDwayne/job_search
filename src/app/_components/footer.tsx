@@ -3,7 +3,7 @@ import { FullLogo } from "./logo";
 
 export const Footer = () => {
   return (
-    <footer className="footer bottom-0 mt-10 bg-cyan-900 text-white">
+    <footer className="footer bottom-0 mt-10 bg-secondary text-white">
       <div className="container mx-auto px-8">
         <div className="flex w-full flex-col py-6 md:flex-row">
           <div className="mb-6 mr-6 flex-1">
