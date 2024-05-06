@@ -7,11 +7,12 @@
  * need to use are documented accordingly near the end.
  */
 
+import { auth, clerkClient } from "@clerk/nextjs/server";
 import { initTRPC, TRPCError } from "@trpc/server";
 import superjson from "superjson";
 import { ZodError } from "zod";
-
 import { db } from "~/server/db";
+import { ratelimit } from "../ratelimit";
 
 /**
  * 1. CONTEXT
@@ -83,6 +84,21 @@ export const createTRPCRouter = t.router;
  */
 export const publicProcedure = t.procedure;
 
+const isAuthenticated = t.middleware(async ({ next }) => {
+  const user = auth();
+  if (!user.userId) throw new TRPCError({ code: "UNAUTHORIZED" });
+
+  const fullUserData = await clerkClient.users.getUser(user.userId);
+  if (fullUserData?.privateMetadata?.premium !== true)
+    throw new TRPCError({ code: "UNAUTHORIZED" });
+
+  return next({
+    ctx: {
+      user: user,
+    },
+  });
+});
+
 /**
  * Protected (authenticated) procedure
  *
@@ -91,14 +107,23 @@ export const publicProcedure = t.procedure;
  *
  * @see https://trpc.io/docs/procedures
  */
-// export const protectedProcedure = t.procedure.use(({ ctx, next }) => {
-// if (!ctx.session?.user) {
-//   throw new TRPCError({ code: "UNAUTHORIZED" });
-// }
-// return next({
-//   ctx: {
-//     // infers the `session` as non-nullable
-//     session: { ...ctx.session, user: ctx.session.user },
-//   },
-//   });
-// });
+export const protectedProcedure = t.procedure.use(isAuthenticated);
+
+const rateLimited = t.middleware(async ({ next }) => {
+  const user = auth();
+  if (!user.userId) throw new TRPCError({ code: "UNAUTHORIZED" });
+
+  const fullUserData = await clerkClient.users.getUser(user.userId);
+  if (fullUserData?.privateMetadata?.premium !== true)
+    throw new TRPCError({ code: "UNAUTHORIZED" });
+
+  const { success } = await ratelimit.limit(user.userId);
+  if (!success) throw new TRPCError({ code: "TOO_MANY_REQUESTS" });
+
+  return next({
+    ctx: {
+      user: user,
+    },
+  });
+});
+export const rateLimitedProcedure = t.procedure.use(rateLimited);

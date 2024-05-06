@@ -1,24 +1,84 @@
+import {
+  createTRPCRouter,
+  protectedProcedure,
+  rateLimitedProcedure,
+} from "../trpc";
+import { jobApplicationFormSchema } from "~/app/applications/_components/JobApplicationForm";
+import { job_applications } from "~/server/db/schema";
+import { and, eq } from "drizzle-orm";
 import { z } from "zod";
-import { db } from "~/server/db";
-import { privateProcedure, createTRPCRouter } from "../trpc";
-import { jobApplicationFormSchema } from "~/app/applications/_components/jobApplicationForm";
+import analyticsServerClient from "~/server/analytics";
+import { redirect } from "next/navigation";
 
 const jobApplicationRouter = createTRPCRouter({
-  // createJobApplication: protectedProcedure
-  //   .input(jobApplicationValidator)
-  //   .mutation(async ({ ctx, input }) => {
-  //     const { success } = await ratelimit.limit(ctx.session.userId);
-  //     if (!success)
-  //       throw new TRPCError({
-  //         code: "TOO_MANY_REQUESTS",
-  //         message: "You've been posting too much. Chill a bit?",
-  //       });
-  //     const post = await ctx.prisma.post.create({
-  //       data: {
-  //         content: input.message,
-  //         authorId: ctx.session.userId,
-  //       },
-  //     });
-  //     return post;
-  //   }),
+  getAll: protectedProcedure.query(({ ctx }) => {
+    return ctx.db.query.job_applications.findMany({
+      where: and(
+        eq(job_applications.userId, ctx.user.userId),
+        job_applications.isActive,
+      ),
+      orderBy: (model, { desc }) => desc(model.updatedAt),
+    });
+  }),
+  getById: protectedProcedure.input(z.number()).query(({ ctx, input }) => {
+    return ctx.db.query.job_applications.findFirst({
+      where: (model, { eq }) => eq(model.id, input),
+    });
+  }),
+  create: rateLimitedProcedure
+    .input(jobApplicationFormSchema)
+    .mutation(async ({ ctx, input }) => {
+      await ctx.db
+        .insert(job_applications)
+        .values({ userId: ctx.user.userId, ...input });
+
+      redirect("/applications");
+    }),
+  archive: protectedProcedure
+    .input(z.object({ id: z.number() }))
+    .mutation(async ({ ctx, input }) => {
+      await ctx.db
+        .update(job_applications)
+        .set({ isActive: false })
+        .where(
+          and(
+            eq(job_applications.id, input.id),
+            eq(job_applications.userId, ctx.user.userId),
+          ),
+        );
+
+      analyticsServerClient.capture({
+        distinctId: ctx.user.userId,
+        event: "archive job application",
+        properties: {
+          jobApplicationId: input.id,
+        },
+      });
+
+      redirect("/applications");
+    }),
+  delete: protectedProcedure
+    .input(z.object({ id: z.number() }))
+    .mutation(async ({ ctx, input }) => {
+      await ctx.db
+        .delete(job_applications)
+        .where(
+          and(
+            eq(job_applications.id, input.id),
+            eq(job_applications.userId, ctx.user.userId),
+          ),
+        );
+
+      analyticsServerClient.capture({
+        distinctId: ctx.user.userId,
+        event: "delete job application",
+        properties: {
+          jobApplicationId: input.id,
+        },
+      });
+
+      redirect("/applications");
+    }),
 });
+
+export default jobApplicationRouter;

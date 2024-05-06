@@ -28,7 +28,10 @@ A comprehensive platform empowering software engineers to effortlessly manage th
 - [x] switch to dark mode
 - [x] Job Application form routing/save to DB
 - [x] Analytics (posthog)
-- [ ] Rate limiting (upstash)
+- [x] Rate limiting (upstash)
+- [x] trpc routing sort of figured out
+- [ ] DRY up the trpc authentication
+- [ ] use trpc routing instead of queries file
 - [ ] Figure out turso db migrations on deploy so I dont have to do it locally
 - [ ] Format salary to look like $175k instead of 175000
 - [ ] Style dark mode to look more modern
