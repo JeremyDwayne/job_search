@@ -1,3 +1,4 @@
+import { SignedOut, SignInButton } from "@clerk/nextjs";
 import { X, Check } from "lucide-react";
 import Pricing from "~/app/_components/pricing";
 import { Button } from "~/components/ui/button";
@@ -16,12 +17,16 @@ export default function Home() {
             </p>
           </div>
           <div className="pt-6 text-center">
-            <Button
-              variant={"outline"}
-              className="light-glow border-secondary px-16 text-center"
-            >
-              Sign Up
-            </Button>
+            <SignedOut>
+              <SignInButton>
+                <Button
+                  variant={"outline"}
+                  className="light-glow border-secondary px-16 text-center"
+                >
+                  Sign Up
+                </Button>
+              </SignInButton>
+            </SignedOut>
           </div>
         </div>
         <section className="glow glass-container mx-auto my-16 w-fit bg-secondary py-8 text-white">
