@@ -6,10 +6,11 @@ import { and, eq } from "drizzle-orm";
 import { redirect } from "next/navigation";
 import analyticsServerClient from "./analytics";
 import { type JobApplicationFormFields } from "~/app/applications/_components/JobApplicationForm";
+import { ratelimit } from "./ratelimit";
 
 export async function getMyJobApplications() {
   const user = auth();
-  if (!user.userId) return []; //throw new Error("Unauthorized");
+  if (!user.userId) throw new Error("Unauthorized");
 
   const applications = await db.query.job_applications.findMany({
     where: and(
@@ -40,6 +41,9 @@ export async function insertJobApplication(data: JobApplicationFormFields) {
   console.log("made it into queries", data);
   const user = auth();
   if (!user.userId) throw new Error("Unauthorized");
+
+  const { success } = await ratelimit(user.userId);
+  if (!success) throw new Error("Rate Limited");
 
   await db.insert(job_applications).values({ userId: user.userId, ...data });
 
