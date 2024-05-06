@@ -28,41 +28,38 @@ export default async function ApplicationsPage() {
         </Link>
       </div>
       <div className="flex flex-wrap items-center justify-center gap-4 p-4">
-        {/* TODO: remove the faked data */}
-        {[...applications, ...applications, ...applications].map(
-          (application) => (
-            <Card key={application.id} className="flex w-80 flex-col">
-              <CardHeader>
-                <CardTitle>{application.company}</CardTitle>
-                <CardDescription>{application.title}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p>
-                  <Link
-                    href={application.jobDescriptionUrl ?? "#"}
-                    className={`${buttonVariants({ variant: "outline" })}`}
-                  >
-                    Job Description
-                  </Link>
-                </p>
-                <div className="mt-4 space-y-1">
-                  <p className="text-sm">Salary Range</p>
-                  <p>
-                    {application.salaryRangeLow}-{application.salaryRangeHigh}
-                  </p>
-                </div>
-              </CardContent>
-              <CardFooter>
+        {applications.map((application) => (
+          <Card key={application.id} className="flex w-80 flex-col">
+            <CardHeader>
+              <CardTitle>{application.company}</CardTitle>
+              <CardDescription>{application.title}</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p>
                 <Link
-                  className={`w-full ${buttonVariants({ variant: "default" })}`}
-                  href={`/job/${application.id}`}
+                  href={application.jobDescriptionUrl ?? "#"}
+                  className={`${buttonVariants({ variant: "outline" })}`}
                 >
-                  <Check className="mr-2 h-4 w-4" /> View
+                  Job Description
                 </Link>
-              </CardFooter>
-            </Card>
-          ),
-        )}
+              </p>
+              <div className="mt-4 space-y-1">
+                <p className="text-sm">Salary Range</p>
+                <p>
+                  {application.salaryRangeLow}-{application.salaryRangeHigh}
+                </p>
+              </div>
+            </CardContent>
+            <CardFooter>
+              <Link
+                className={`w-full ${buttonVariants({ variant: "default" })}`}
+                href={`/job/${application.id}`}
+              >
+                <Check className="mr-2 h-4 w-4" /> View
+              </Link>
+            </CardFooter>
+          </Card>
+        ))}
       </div>
     </div>
   );

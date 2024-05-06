@@ -1,3 +1,4 @@
+"use server";
 import "server-only";
 import { db } from "./db";
 import { auth } from "@clerk/nextjs/server";
@@ -42,7 +43,7 @@ export async function insertJobApplication(data: JobApplicationFormFields) {
   const user = auth();
   if (!user.userId) throw new Error("Unauthorized");
 
-  const { success } = await ratelimit(user.userId);
+  const { success } = await ratelimit.limit(user.userId);
   if (!success) throw new Error("Rate Limited");
 
   await db.insert(job_applications).values({ userId: user.userId, ...data });
