@@ -1,4 +1,4 @@
-import JobApplicationForm from "../_components/JobApplicationForm";
+import JobApplicationForm from "../_components/jobApplicationForm";
 
 export default async function NewApplication() {
   return (

@@ -1,12 +1,11 @@
-"use server";
 import "server-only";
 import { db } from "./db";
 import { auth } from "@clerk/nextjs/server";
-import { InsertJobApplication, job_applications } from "./db/schema";
+import { job_applications } from "./db/schema";
 import { and, eq } from "drizzle-orm";
 import { redirect } from "next/navigation";
-import { revalidatePath } from "next/cache";
-import { JobApplicationFormFields } from "~/app/applications/_components/JobApplicationForm";
+import analyticsServerClient from "./analytics";
+import { type JobApplicationFormFields } from "~/app/applications/_components/JobApplicationForm";
 
 export async function getMyJobApplications() {
   const user = auth();
@@ -44,7 +43,6 @@ export async function insertJobApplication(data: JobApplicationFormFields) {
 
   await db.insert(job_applications).values({ userId: user.userId, ...data });
 
-  revalidatePath("/applications");
   redirect("/applications");
 }
 
@@ -62,7 +60,14 @@ export async function archiveJobApplication(id: number) {
       ),
     );
 
-  revalidatePath("/applications");
+  analyticsServerClient.capture({
+    distinctId: user.userId,
+    event: "archive job application",
+    properties: {
+      jobApplicationId: id,
+    },
+  });
+
   redirect("/applications");
 }
 
@@ -79,6 +84,13 @@ export async function deleteJobApplication(id: number) {
       ),
     );
 
-  revalidatePath("/applications");
+  analyticsServerClient.capture({
+    distinctId: user.userId,
+    event: "delete job application",
+    properties: {
+      jobApplicationId: id,
+    },
+  });
+
   redirect("/applications");
 }

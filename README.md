@@ -10,7 +10,7 @@ A comprehensive platform empowering software engineers to effortlessly manage th
 - Next.js
 - Tailwind CSS
 - Turso
-- Drizzle
+- Drizzle ORM
 - tRPC
 - Vercel
 - Clerk Auth
@@ -29,7 +29,10 @@ A comprehensive platform empowering software engineers to effortlessly manage th
 - [x] Job Application form routing/save to DB
 - [x] Analytics (posthog)
 - [ ] Rate limiting (upstash)
+- [ ] Figure out turso db migrations on deploy so I dont have to do it locally
+- [ ] Format salary to look like $175k instead of 175000
 - [ ] Style dark mode to look more modern
+- [ ] fix weird margins on smaller screens
 - [ ] Add company model
   - [ ] adjust db to associate relation with company on applications
   - [ ] Ranking of company for that job application
@@ -39,6 +42,8 @@ A comprehensive platform empowering software engineers to effortlessly manage th
     - rank
 - [ ] Add additional fields to job applications
   - [ ] Notes
+  - [ ] equity
+  - [ ] benefits
   - [ ] Ranking of company
   - [ ] Recruiter Contact
   - [ ] Interview Dates
