@@ -3,8 +3,7 @@ import {
   protectedProcedure,
   rateLimitedProcedure,
 } from "../trpc";
-import { jobApplicationFormSchema } from "~/app/applications/_components/JobApplicationForm";
-import { job_applications } from "~/server/db/schema";
+import { job_applications, JobApplicationSchema } from "~/server/db/schema";
 import { and, eq } from "drizzle-orm";
 import { z } from "zod";
 import analyticsServerClient from "~/server/analytics";
@@ -26,7 +25,7 @@ const jobApplicationRouter = createTRPCRouter({
     });
   }),
   create: rateLimitedProcedure
-    .input(jobApplicationFormSchema)
+    .input(JobApplicationSchema)
     .mutation(async ({ ctx, input }) => {
       await ctx.db
         .insert(job_applications)

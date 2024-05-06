@@ -2,6 +2,7 @@ import { sqliteTable } from "drizzle-orm/sqlite-core";
 import { sql } from "drizzle-orm";
 import { int, text } from "drizzle-orm/sqlite-core";
 import { createInsertSchema, createSelectSchema } from "drizzle-zod";
+import { z } from "zod";
 
 export const job_applications = sqliteTable("job_applications", {
   id: int("id", { mode: "number" }).primaryKey({ autoIncrement: true }),
@@ -20,3 +21,11 @@ export const job_applications = sqliteTable("job_applications", {
 
 export const InsertJobApplication = createInsertSchema(job_applications);
 export const SelectJobApplication = createSelectSchema(job_applications);
+
+export const JobApplicationSchema = z.object({
+  company: z.string().min(2),
+  title: z.string().min(2),
+  jobDescriptionUrl: z.string(),
+  salaryRangeLow: z.coerce.number(),
+  salaryRangeHigh: z.coerce.number(),
+});

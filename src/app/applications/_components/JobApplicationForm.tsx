@@ -3,7 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { type SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
-import { z } from "zod";
+import { type z } from "zod";
 import { Button } from "~/components/ui/button";
 import {
   Form,
@@ -14,21 +14,14 @@ import {
   FormMessage,
 } from "~/components/ui/form";
 import { Input } from "~/components/ui/input";
+import { JobApplicationSchema } from "~/server/db/schema";
 import { insertJobApplication } from "~/server/queries";
 
-export const jobApplicationFormSchema = z.object({
-  company: z.string().min(2),
-  title: z.string().min(2),
-  jobDescriptionUrl: z.string(),
-  salaryRangeLow: z.coerce.number(),
-  salaryRangeHigh: z.coerce.number(),
-});
-
-export type JobApplicationFormFields = z.infer<typeof jobApplicationFormSchema>;
+export type JobApplicationFormFields = z.infer<typeof JobApplicationSchema>;
 
 export default function JobApplicationForm() {
   const form = useForm<JobApplicationFormFields>({
-    resolver: zodResolver(jobApplicationFormSchema),
+    resolver: zodResolver(JobApplicationSchema),
     defaultValues: {
       company: "",
       title: "",
