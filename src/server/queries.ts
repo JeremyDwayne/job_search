@@ -1,7 +1,7 @@
 "use server";
 import "server-only";
 import { db } from "./db";
-import { auth } from "@clerk/nextjs/server";
+import { auth, clerkClient } from "@clerk/nextjs/server";
 import { job_applications } from "./db/schema";
 import { and, eq } from "drizzle-orm";
 import { redirect } from "next/navigation";
@@ -39,9 +39,12 @@ export async function getJobApplication(id: number) {
 }
 
 export async function insertJobApplication(data: JobApplicationFormFields) {
-  console.log("made it into queries", data);
   const user = auth();
   if (!user.userId) throw new Error("Unauthorized");
+
+  const fullUserData = await clerkClient.users.getUser(user.userId);
+  if (fullUserData?.privateMetadata?.premium !== true)
+    throw new Error("User does not have create permissions");
 
   const { success } = await ratelimit.limit(user.userId);
   if (!success) throw new Error("Rate Limited");
