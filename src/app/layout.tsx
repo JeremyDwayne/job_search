@@ -1,6 +1,6 @@
 import "~/styles/globals.css";
 
-import { Inter } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 import { TRPCReactProvider } from "~/trpc/react";
 import { Footer } from "./_components/footer";
 import { Header } from "./_components/header";
@@ -8,9 +8,10 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { CSPostHogProvider } from "./_analytics/providers";
 import { Toaster } from "~/components/ui/sonner";
 
-const inter = Inter({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-sans",
+  display: "swap",
+  variable: "--font-dm-sans",
 });
 
 export const metadata = {
@@ -29,8 +30,8 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <CSPostHogProvider>
-        <html lang="en">
-          <body className={`dark font-sans ${inter.variable}`}>
+        <html lang="en" className={dmSans.variable}>
+          <body className="dark bg-[#070815] text-white">
             <div className="grid h-screen grid-rows-[auto,4fr,.5fr]">
               <Header />
               <TRPCReactProvider>

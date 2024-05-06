@@ -33,6 +33,7 @@ export function FullLogo() {
       <span className="text-base text-pink-400">
         <i>wtf</i>
       </span>
+      <span className="sr-only">JobSearch.wtf Home Page</span>
     </Link>
   );
 }
