@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button, buttonVariants } from "./ui/button";
 import { api } from "~/trpc/server";
 import { redirect } from "next/navigation";
+import { USDollar } from "~/utils/currencies";
 
 export default async function FullPageJobApplicationView(props: {
   id: number;
@@ -21,7 +22,8 @@ export default async function FullPageJobApplicationView(props: {
         <div className="ml-8 space-y-1">
           <p className="text-sm">Salary Range</p>
           <p>
-            {application.salaryRangeLow}-{application.salaryRangeHigh}
+            {USDollar.format(application.salaryRangeLow ?? 0)}-
+            {USDollar.format(application.salaryRangeHigh ?? 0)}
           </p>
         </div>
       </div>

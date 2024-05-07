@@ -19,8 +19,6 @@ A comprehensive platform empowering software engineers to effortlessly manage th
 - [ ] DRY up the trpc authentication
 - [ ] use trpc routing instead of queries file
 - [ ] Figure out turso db migrations on deploy so I dont have to do it locally
-- [ ] Format salary to look like $175k instead of 175000
-- [ ] fix weird margins on smaller screens
 - [ ] Add company model
   - [ ] adjust db to associate relation with company on applications
   - [ ] Ranking of company for that job application

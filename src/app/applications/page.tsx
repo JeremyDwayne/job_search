@@ -10,6 +10,7 @@ import { buttonVariants } from "~/components/ui/button";
 import { Check, Plus } from "lucide-react";
 import Link from "next/link";
 import { api } from "~/trpc/server";
+import { USDollar } from "~/utils/currencies";
 
 export default async function ApplicationsPage() {
   const applications = await api.jobApplications.getAll();
@@ -46,7 +47,8 @@ export default async function ApplicationsPage() {
               <div className="mt-4 space-y-1">
                 <p className="text-sm">Salary Range</p>
                 <p>
-                  {application.salaryRangeLow}-{application.salaryRangeHigh}
+                  {USDollar.format(application.salaryRangeLow ?? 0)}-
+                  {USDollar.format(application.salaryRangeHigh ?? 0)}
                 </p>
               </div>
             </CardContent>
