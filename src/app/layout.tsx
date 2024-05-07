@@ -32,10 +32,10 @@ export default function RootLayout({
       <CSPostHogProvider>
         <html lang="en" className={dmSans.variable}>
           <body className="dark bg-[#070815] text-white">
-            <div className="grid h-screen grid-rows-[auto,4fr,.5fr]">
+            <div className="flex h-screen flex-col justify-between">
               <Header />
               <TRPCReactProvider>
-                <main className="mt-8">{children}</main>
+                <main className="mb-auto mt-4">{children}</main>
               </TRPCReactProvider>
               <Footer />
             </div>

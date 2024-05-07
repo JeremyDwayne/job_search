@@ -6,13 +6,13 @@ import {
   CardHeader,
   CardTitle,
 } from "~/components/ui/card";
-import { getMyJobApplications } from "~/server/queries";
 import { buttonVariants } from "~/components/ui/button";
 import { Check, Plus } from "lucide-react";
 import Link from "next/link";
+import { api } from "~/trpc/server";
 
 export default async function ApplicationsPage() {
-  const applications = await getMyJobApplications();
+  const applications = await api.jobApplications.getAll();
 
   return (
     <div className="container">

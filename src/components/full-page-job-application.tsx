@@ -1,15 +1,16 @@
 import Link from "next/link";
-import {
-  archiveJobApplication,
-  deleteJobApplication,
-  getJobApplication,
-} from "~/server/queries";
 import { Button, buttonVariants } from "./ui/button";
+import { api } from "~/trpc/server";
+import { redirect } from "next/navigation";
 
 export default async function FullPageJobApplicationView(props: {
   id: number;
 }) {
-  const application = await getJobApplication(props.id);
+  const application = await api.jobApplications.getById(props.id);
+  if (!application) {
+    redirect("/applications");
+  }
+
   return (
     <div className="container flex h-full w-full items-center justify-center p-24 text-white">
       <div className="flex flex-shrink flex-grow items-center">
@@ -38,7 +39,8 @@ export default async function FullPageJobApplicationView(props: {
           <form
             action={async () => {
               "use server";
-              await archiveJobApplication(props.id);
+              await api.jobApplications.archive({ id: props.id });
+              redirect("/applications");
             }}
           >
             <Button type="submit" variant="warning">
@@ -48,7 +50,8 @@ export default async function FullPageJobApplicationView(props: {
           <form
             action={async () => {
               "use server";
-              await deleteJobApplication(props.id);
+              await api.jobApplications.delete({ id: props.id });
+              redirect("/applications");
             }}
           >
             <Button type="submit" variant="destructive">

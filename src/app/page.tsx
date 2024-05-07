@@ -5,7 +5,7 @@ import { Button } from "~/components/ui/button";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center">
       <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
         <div className="container mx-auto flex flex-col items-center px-3">
           <div className="flex-wrap items-start justify-center text-center md:w-1/2">
@@ -30,7 +30,7 @@ export default function Home() {
           </div>
         </div>
         <section className="glow glass-container mx-auto my-16 w-fit bg-secondary py-8 text-white">
-          <div className="container mx-auto flex flex-wrap pb-12 pt-4">
+          <div className="container flex flex-wrap pb-12 pt-4">
             <h2 className="my-2 w-full text-center text-5xl font-bold leading-tight">
               Features
             </h2>

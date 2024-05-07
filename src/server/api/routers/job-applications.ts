@@ -7,7 +7,6 @@ import { job_applications, JobApplicationSchema } from "~/server/db/schema";
 import { and, eq } from "drizzle-orm";
 import { z } from "zod";
 import analyticsServerClient from "~/server/analytics";
-import { redirect } from "next/navigation";
 
 const jobApplicationRouter = createTRPCRouter({
   getAll: protectedProcedure.query(({ ctx }) => {
@@ -30,8 +29,6 @@ const jobApplicationRouter = createTRPCRouter({
       await ctx.db
         .insert(job_applications)
         .values({ userId: ctx.user.userId, ...input });
-
-      redirect("/applications");
     }),
   archive: protectedProcedure
     .input(z.object({ id: z.number() }))
@@ -53,8 +50,6 @@ const jobApplicationRouter = createTRPCRouter({
           jobApplicationId: input.id,
         },
       });
-
-      redirect("/applications");
     }),
   delete: protectedProcedure
     .input(z.object({ id: z.number() }))
@@ -75,8 +70,6 @@ const jobApplicationRouter = createTRPCRouter({
           jobApplicationId: input.id,
         },
       });
-
-      redirect("/applications");
     }),
 });
 

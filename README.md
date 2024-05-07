@@ -16,21 +16,6 @@ A comprehensive platform empowering software engineers to effortlessly manage th
 - Clerk Auth
 
 ## TODO
-- [x] Make it deploy (vercel)
-- [x] Scaffold basic ui
-- [x] setup database (Turso)
-- [x] attach db to ui
-- [x] add auth (Clerk)
-- [x] add job applications
-- [x] Error management (Sentry)
-- [x] replace daisyui with shadui
-- [x] routing (parallel route)
-- [x] switch to dark mode
-- [x] Job Application form routing/save to DB
-- [x] Analytics (posthog)
-- [x] Rate limiting (upstash)
-- [x] trpc routing sort of figured out
-- [x] Style dark mode to look more modern
 - [ ] DRY up the trpc authentication
 - [ ] use trpc routing instead of queries file
 - [ ] Figure out turso db migrations on deploy so I dont have to do it locally
