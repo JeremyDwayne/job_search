@@ -16,8 +16,9 @@ A comprehensive platform empowering software engineers to effortlessly manage th
 - Clerk Auth
 
 ## TODO
-- [ ] DRY up the trpc authentication
-- [ ] use trpc routing instead of queries file
+
+- [x] DRY up the trpc authentication
+- [x] use trpc routing instead of queries file
 - [ ] Figure out turso db migrations on deploy so I dont have to do it locally
 - [ ] Add company model
   - [ ] adjust db to associate relation with company on applications
@@ -40,3 +41,4 @@ A comprehensive platform empowering software engineers to effortlessly manage th
   - [ ] Areas you did well
   - [ ] Areas you could improve
   - [ ] Interviewers Names & Contact Info
+

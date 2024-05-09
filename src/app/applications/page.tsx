@@ -7,7 +7,7 @@ import {
   CardTitle,
 } from "~/components/ui/card";
 import { buttonVariants } from "~/components/ui/button";
-import { Check, Plus } from "lucide-react";
+import { Plus, Search } from "lucide-react";
 import Link from "next/link";
 import { api } from "~/trpc/server";
 import { USDollar } from "~/utils/currencies";
@@ -30,7 +30,10 @@ export default async function ApplicationsPage() {
       </div>
       <div className="flex flex-wrap items-center justify-center gap-4 p-4">
         {applications.map((application) => (
-          <Card key={application.id} className="flex w-80 flex-col">
+          <Card
+            key={application.id}
+            className="flex w-80 flex-col bg-secondary"
+          >
             <CardHeader>
               <CardTitle>{application.company}</CardTitle>
               <CardDescription>{application.title}</CardDescription>
@@ -57,7 +60,7 @@ export default async function ApplicationsPage() {
                 className={`w-full ${buttonVariants({ variant: "default" })}`}
                 href={`/job/${application.id}`}
               >
-                <Check className="mr-2 h-4 w-4" /> View
+                <Search className="mr-2 h-4 w-4" /> View
               </Link>
             </CardFooter>
           </Card>

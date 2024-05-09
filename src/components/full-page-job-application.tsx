@@ -13,7 +13,7 @@ export default async function FullPageJobApplicationView(props: {
   }
 
   return (
-    <div className="container flex h-full w-full items-center justify-center p-24 text-white">
+    <div className="container flex h-full w-full items-center justify-center bg-secondary p-24 text-white">
       <div className="flex flex-shrink flex-grow items-center">
         <div className="">
           <h1 className="text-2xl font-bold">{application.company}</h1>
@@ -28,7 +28,7 @@ export default async function FullPageJobApplicationView(props: {
         </div>
       </div>
       <div className="mx-8 flex h-full w-56 flex-shrink-0 flex-col border-l border-white">
-        <div className="p-2">
+        <div className="ml-8 p-2">
           <Link
             href={application.jobDescriptionUrl ?? "#"}
             className={`${buttonVariants({ variant: "default" })}`}
@@ -37,7 +37,7 @@ export default async function FullPageJobApplicationView(props: {
           </Link>
         </div>
 
-        <div className="flex items-center gap-2 p-2">
+        <div className="ml-8 flex items-center gap-2 p-2">
           <form
             action={async () => {
               "use server";
