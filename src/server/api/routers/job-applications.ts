@@ -28,7 +28,9 @@ const jobApplicationRouter = createTRPCRouter({
     .mutation(async ({ ctx, input }) => {
       await ctx.db
         .insert(job_applications)
-        .values({ userId: ctx.user.userId, ...input });
+        .values({ userId: ctx.user.userId, ...input })
+        .run();
+      return true;
     }),
   archive: protectedProcedure
     .input(z.object({ id: z.number() }))

@@ -1,6 +1,9 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { create } from "domain";
+import { revalidatePath } from "next/cache";
+import { redirect, useRouter } from "next/navigation";
 import { type SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { type z } from "zod";
@@ -15,11 +18,19 @@ import {
 } from "~/components/ui/form";
 import { Input } from "~/components/ui/input";
 import { JobApplicationSchema } from "~/server/db/schema";
-import { insertJobApplication } from "~/server/queries";
+import { api } from "~/trpc/react";
 
 export type JobApplicationFormFields = z.infer<typeof JobApplicationSchema>;
 
 export default function JobApplicationForm() {
+  const router = useRouter();
+  const addApplication = api.jobApplications.create.useMutation({
+    onSettled: () => {
+      router.prefetch("/applications");
+      router.push("/applications");
+    },
+  });
+
   const form = useForm<JobApplicationFormFields>({
     resolver: zodResolver(JobApplicationSchema),
     defaultValues: {
@@ -31,9 +42,9 @@ export default function JobApplicationForm() {
     },
   });
 
-  const onSubmit: SubmitHandler<JobApplicationFormFields> = async (data) => {
+  const onSubmit: SubmitHandler<JobApplicationFormFields> = (data) => {
     try {
-      await insertJobApplication(data);
+      addApplication.mutate(data);
       toast("Job Application Created");
     } catch (error) {
       form.setError("root", {
@@ -41,6 +52,7 @@ export default function JobApplicationForm() {
       });
     }
   };
+
   return (
     <div>
       <h1 className="font-2xl font-bold">New Job Application</h1>
